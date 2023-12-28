@@ -20,8 +20,8 @@ print('continue 테스트')
 for num in range(2, 10):
     if num % 2 == 0:
         print("Found an even number", num)
-        continue # 이 아래 skip 하고 진행중인 반복문 다음단계로 계속 진행 
-        print('after continue')
+        continue # 이 아래 skip 하고 진행중인 반복문 다음단계로 계속 진행, 다음 num 수행
+        print('after continue') # 출력되지 않는다. 
     print("Found an odd number", num)
     
 # break 반복문이 종료되어 모든 범위를 순회하지 않는다.
