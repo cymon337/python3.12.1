@@ -98,9 +98,52 @@ match point:
         print(f"Not on the diagonal")
 
 # Like unpacking assignments, tuple and list patterns have exactly the same meaning and actually match arbitrary sequences. An important exception is that they don’t match iterators or strings.
+# 튜플 언패킹
+t = (1, 2, 3)
+a, b, c = t
+print(a, b, c)  # 출력: 1 2 3
+
+# 리스트 언패킹
+l = [4, 5, 6]
+x, y, z = l
+print(x, y, z)  # 출력: 4 5 6
+
+# 튜플로 임의의 시퀀스 일치
+s = "abc"
+it = iter(s)
+a, b, c = it
+print(a, b, c)  # 출력: a b c
+
+# 튜플로 임의의 시퀀스 일치
+seq = [10, 20, 30]
+t = (*seq,)
+print(t)  # 출력: (10, 20, 30)
 
 # Sequence patterns support extended unpacking: [x, y, *rest] and (x, y, *rest) work similar to unpacking assignments. The name after * may also be _, so (x, y, *_) matches a sequence of at least two items without binding the remaining items.
+# '*' 를 사용하는 확장 언패킹(Extended Unpacking)은 시퀀스의 요소를 풀어서(Unpack) 여러 변수에 할당할 수 있습니다. 
+# javascript 의 (1, 2, ...) 문법과 유사
 
+# 리스트의 언패킹
+numbers = [1, 2, 3, 4, 5]
+first, *rest = numbers
+
+print(first)  # 출력: 1
+print(rest)   # 출력: [2, 3, 4, 5]
+
+# 튜플의 언패킹
+coordinates = (10, 20, 30)
+x, y, *z = coordinates
+
+print(x)  # 출력: 10
+print(y)  # 출력: 20
+print(z)  # 출력: [30]
+
+# 문자열의 언패킹
+word = "hello"
+first, *rest = word
+
+print(first)  # 출력: h
+print(rest)   # 출력: ['e', 'l', 'l', 'o']
 # Mapping patterns: {"bandwidth": b, "latency": l} captures the "bandwidth" and "latency" values from a dictionary. Unlike sequence patterns, extra keys are ignored. An unpacking like **rest is also supported. (But **_ would be redundant, so it is not allowed.)
 
 # Subpatterns may be captured using the as keyword:
